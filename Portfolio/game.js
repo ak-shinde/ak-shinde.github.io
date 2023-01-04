@@ -50,6 +50,7 @@ const placeCharacter = () => {
     document.querySelector(".dpad-select").classList.add("highlight");
     } else {
         document.querySelector(".dpad-select").classList.remove("highlight");
+        isTextShown = false;
     }
 
    // Outer walls
@@ -65,7 +66,7 @@ const placeCharacter = () => {
 
    // Upper room
 
-   if (x > 10 && x < 18 && y < 14 && held_direction && held_direction === directions.select) showText(topWoman, true)
+   if (x > 10 && x < 18 && y < 14) showText(topWoman, true)
 
    //tables
    if (y < 32 && held_direction) {
@@ -94,8 +95,8 @@ const placeCharacter = () => {
     
     if (x > 16*4.5 && x < 16*6 && y > 38 && y < 50) showNavText("Skillset")
 
-    if (x > 16*3.8 && x < 16*5 && y > 42 && y < 82 && held_direction === directions.select) showText(AB, true)
-    if (x > 16*5 && x < 16*6 && y > 42 && y < 82 && held_direction === directions.select) showText(AB, true, true)
+    if (x > 16*3.8 && x < 16*5 && y > 42 && y < 82) showText(AB, true)
+    if (x > 16*5 && x < 16*6 && y > 42 && y < 82) showText(AB, true, true)
    }
 
    // printer
@@ -211,8 +212,9 @@ document.addEventListener("keydown", (e) => {
    var dir = keys[e.which];
    if (dir && held_directions.indexOf(dir) === -1) {
       held_directions.unshift(dir)
+      hideText()
    }
-   if (dir === directions.select) hideText()
+//    if (dir === directions.select) hideText()
 })
 
 document.addEventListener("keyup", (e) => {
@@ -251,7 +253,7 @@ const handleDpadPress = (direction, click) => {
    if (isPressed) {
       removePressedAll();
       document.querySelector(".dpad-"+direction).classList.add("pressed");
-      if (direction === directions.select) hideText()
+      hideText()
 
    }
 }
@@ -351,11 +353,7 @@ function revealOneCharacter(list) {
       setTimeout(function () {
          revealOneCharacter(list);
       }, delay);
-   } else {
-    setTimeout(() => {
-        hideText()
-    }, 1000)
-    }
+   }
 }
 
 function hideText() {
@@ -384,11 +382,14 @@ function showText(textLines, isNPC = false, rightSide = false) {
         document.querySelector(".corner").querySelector('path').classList.remove('orange')
         document.querySelector(".corner").classList.remove('npcCornerFromRight')
     }
-    createTextSpans(textLines)
+    createTextSpans(textLines, true)
 }
 
-function createTextSpans(textLines) {
-    if (document.querySelector(".text").classList.contains('hidden')) {
+var isTextShown = false;
+
+function createTextSpans(textLines, isNPC) {
+    if (!isTextShown) {
+        isTextShown = true;
         var characters = [];
         textLines.forEach((line, index) => {
             if (index < textLines.length - 1) {
@@ -412,6 +413,8 @@ function createTextSpans(textLines) {
         setTimeout(() => {
         revealOneCharacter(characters);
         }, 300)
+
+        if (!isNPC && held_directions && held_directions[0] === directions.select) window.open("https://github.com/ak-shinde", '_blank');
     }
 }
 
@@ -424,9 +427,7 @@ function showNavText(textLines) {
     document.querySelector(".text").classList.add('navBox')
     document.querySelector(".corner").classList.add('navCorner')
     document.querySelector(".corner").querySelector('path').classList.add('green')
-    createTextSpans(getNavTitle(textLines))
-
-    if (held_directions && held_directions[0] === directions.select) window.open("https://github.com/ak-shinde", '_blank');
+    createTextSpans(getNavTitle(textLines), false)
 }
 
 showText(welcomeMessage, false)
