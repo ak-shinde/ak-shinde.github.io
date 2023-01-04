@@ -3,6 +3,13 @@
     --grid-cell: calc( var(--pixel-size) * 12);
     --bg: #9fa7e4;
  }
+
+ /* @media only screen and (max-width: 900px) {
+    :root {
+        --pixel-size: 3px;
+     }
+ } */
+
  @media( min-width: 700px ) {
     :root {
        --pixel-size: 4px;
@@ -260,7 +267,7 @@
  .npcBox {
     background: #ffaa00;
     border-bottom: 1vw solid #fff;
-    top: calc(var(--pixel-size) * 16);
+    top: calc(var(--pixel-size) * 20);
  }
  .npcCorner {
     left: calc(var(--pixel-size) * 72);

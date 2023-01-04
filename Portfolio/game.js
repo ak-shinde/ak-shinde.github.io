@@ -91,9 +91,9 @@ const placeCharacter = () => {
     if (x < 16*5.8 && x > 16*4 && y < 82 && y > 42 && held_direction === directions.right) x = 16*4
     if (x < 16*5.8 && x > 16*4.7 && y < 82 && y > 42 && held_direction === directions.left) x = 16*5.8
 
-    if (x > 24 && x < 42 && y > 28 && y < 38) showNavText("About Me")
+    if (x > 24 && x < 42 && y > 28 && y < 38) showNavText("About Me", links.about)
     
-    if (x > 16*4.5 && x < 16*6 && y > 38 && y < 50) showNavText("Skillset")
+    if (x > 16*4.5 && x < 16*6 && y > 38 && y < 50) showNavText("Skillset", links.skillset)
 
     if (x > 16*3.8 && x < 16*5 && y > 42 && y < 82) showText(AB, true)
     if (x > 16*5 && x < 16*6 && y > 42 && y < 82) showText(AB, true, true)
@@ -104,13 +104,13 @@ const placeCharacter = () => {
     if (y > 12 && y < 32 && held_direction === directions.down) y = 12
     if (y > 12 && y < 32 && held_direction === directions.up) y = 32
 
-    if (y > 8 && y < 40) showNavText("Resume")
+    if (y > 8 && y < 40) showNavText("Resume", links.resume)
    }
 
    if (y > 12 && y < 32 && held_direction) {
     if (x > 16*7.4 && held_direction === directions.right) x = 16*7.4
 
-    if (x > 16*7) showNavText("Resume")
+    if (x > 16*7) showNavText("Resume", links.resume)
    }
 
    // mid wall 
@@ -147,7 +147,7 @@ const placeCharacter = () => {
         }
     }
 
-    if (y > 118 && y < 132 && x > 16*6.3 && x < 16*8.2) showNavText("Projects")
+    if (y > 118 && y < 132 && x > 16*6.3 && x < 16*8.2) showNavText("Projects", links.projects)
 
     // L table, sofa wall and printer
     if (x < 16*5.2) {
@@ -164,8 +164,8 @@ const placeCharacter = () => {
         if (x > 32 && x < 16*3.2 && y > 110 && y < 128 && held_direction === directions.left) x = 16*3.2
     }
 
-    if (x < 16*5.4 && x > 16*3.8 && y > 104 && y < 120) showNavText("Past Experiences")
-    if (x > 28 && x < 16*3.5 && y > 104 && y < 132) showNavText("Education")
+    if (x < 16*5.4 && x > 16*3.8 && y > 104 && y < 120) showNavText("Past Experiences", links.experiences)
+    if (x > 28 && x < 16*3.5 && y > 104 && y < 132) showNavText("Education", links.education)
 
    }
 
@@ -182,7 +182,7 @@ const placeCharacter = () => {
 
 //Set up the game loop
 const step = () => {
-   if(!document.hasFocus()) { held_directions = []; };
+   if(!document.hasFocus()) {held_directions = []; };
    placeCharacter();
    window.requestAnimationFrame(() => {
       step();
@@ -244,13 +244,22 @@ document.addEventListener("mouseup", () => {
    held_directions = [];
    removePressedAll();
 })
+
+document.addEventListener("touchend", () => {
+    isPressed = false;
+    held_directions = [];
+    removePressedAll();
+ })
+
 const handleDpadPress = (direction, click) => {   
    if (click) {
+    console.log('click')
       isPressed = true;
    }
    held_directions = (isPressed) ? [direction] : []
    
    if (isPressed) {
+    console.log('ispressed')
       removePressedAll();
       document.querySelector(".dpad-"+direction).classList.add("pressed");
       hideText()
@@ -263,6 +272,12 @@ document.querySelector(".dpad-up").addEventListener("touchstart", (e) => handleD
 document.querySelector(".dpad-right").addEventListener("touchstart", (e) => handleDpadPress(directions.right, true));
 document.querySelector(".dpad-down").addEventListener("touchstart", (e) => handleDpadPress(directions.down, true));
 document.querySelector(".dpad-select").addEventListener("touchstart", (e) => handleDpadPress(directions.select, true));
+
+// document.querySelector(".dpad-left").addEventListener("touchend", (e) => handleDpadPress(directions.left));
+// document.querySelector(".dpad-up").addEventListener("touchend", (e) => handleDpadPress(directions.up));
+// document.querySelector(".dpad-right").addEventListener("touchend", (e) => handleDpadPress(directions.right));
+// document.querySelector(".dpad-down").addEventListener("touchend", (e) => handleDpadPress(directions.down));
+// document.querySelector(".dpad-select").addEventListener("touchend", (e) => handleDpadPress(directions.select));
 
 document.querySelector(".dpad-left").addEventListener("mousedown", (e) => handleDpadPress(directions.left, true));
 document.querySelector(".dpad-up").addEventListener("mousedown", (e) => handleDpadPress(directions.up, true));
@@ -389,6 +404,7 @@ var isTextShown = false;
 
 function createTextSpans(textLines, isNPC) {
     if (!isTextShown) {
+        isLinkPressed = false;
         isTextShown = true;
         var characters = [];
         textLines.forEach((line, index) => {
@@ -413,12 +429,20 @@ function createTextSpans(textLines, isNPC) {
         setTimeout(() => {
         revealOneCharacter(characters);
         }, 300)
-
-        if (!isNPC && held_directions && held_directions[0] === directions.select) window.open("https://github.com/ak-shinde", '_blank');
     }
 }
 
-function showNavText(textLines) {
+var isLinkPressed = false;
+const links = {
+    resume: 'https://www.dropbox.com/s/4uxp05m1xbk51sg/Resume-AkshayShinde.pdf?dl=0',
+    about: 'https://github.com/ak-shinde',
+    experiences: 'https://github.com/ak-shinde',
+    skillset: 'https://github.com/ak-shinde',
+    education: 'https://github.com/ak-shinde',
+    projects: 'https://github.com/ak-shinde',
+}
+
+function showNavText(textLines, link) {
     document.querySelector(".text").classList.remove('npcBox')
     document.querySelector(".corner").classList.remove('npcCorner')
     document.querySelector(".corner").querySelector('path').classList.remove('orange')
@@ -428,6 +452,13 @@ function showNavText(textLines) {
     document.querySelector(".corner").classList.add('navCorner')
     document.querySelector(".corner").querySelector('path').classList.add('green')
     createTextSpans(getNavTitle(textLines), false)
+
+    if (!isLinkPressed && held_directions && held_directions[0] === directions.select) {
+        window.open(link, '_blank');
+        isLinkPressed = true;
+        held_directions = []
+    }
+
 }
 
 showText(welcomeMessage, false)
