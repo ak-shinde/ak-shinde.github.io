@@ -1,18 +1,24 @@
 :root {
-    --pixel-size: 2px;
+    --pixel-size: 3px;
     --grid-cell: calc( var(--pixel-size) * 12);
     --bg: #9fa7e4;
  }
  @media( min-width: 700px ) {
     :root {
-       --pixel-size: 3px;
+       --pixel-size: 4px;
     }
  }
  @media( min-width: 1000px ) {
     :root {
-       --pixel-size: 4px;
+       --pixel-size: 5px;
     }
  }
+
+ /* @media( min-width: 1280px ) {
+    :root {
+       --pixel-size: 6px;
+    }
+ } */
  
  html, body {
     height: 100%;
@@ -225,12 +231,12 @@
     font-family: 'Press Start 2P'
  }
  .text {
-    font-size: 1vw;
+    font-size: calc(var(--pixel-size) * 2.5);
     word-spacing: 0.2em;
     margin: 0 auto;
     background: #fff;
     padding: 1em;
-    border-bottom: 1vw solid #ffaa00;
+    border-bottom: calc(var(--pixel-size) * 2.5) solid #ffaa00;
     /* position:relative; */
     line-height: 1.2em;
     /* white-space: pre-line; */
@@ -243,8 +249,8 @@
  }
  .corner {
     position:absolute;
-    width: 4vw;
-    left:20vw;
+    width: calc(var(--pixel-size) * 10);
+    left:calc(var(--pixel-size) * 55);
     bottom:0;
     transform: translateY(80%); 
  }
@@ -254,10 +260,10 @@
  .npcBox {
     background: #ffaa00;
     border-bottom: 1vw solid #fff;
-    top: calc(var(--pixel-size) * 12);
+    top: calc(var(--pixel-size) * 16);
  }
  .npcCorner {
-    left: 28vw;
+    left: calc(var(--pixel-size) * 72);
  }
  .navBox {
     left: calc(var(--pixel-size) * 45);
@@ -267,10 +273,10 @@
     border-bottom: 1vw solid black;
  }
  .navCorner {
-    left:8vw;
+    left:calc(var(--pixel-size) * 22);
  }
  .npcCornerFromRight {
-    left: 16vw;
+    left: calc(var(--pixel-size) * 42);
  }
  .orange {
     fill: #ffaa00;
