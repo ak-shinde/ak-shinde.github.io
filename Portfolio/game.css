@@ -82,6 +82,8 @@
     position:relative;
     box-sizing: border-box;
     border: 5px solid black;
+    user-select: none;
+    pointer-events: none;
  }
  
  .map {
@@ -93,6 +95,7 @@
     height: calc(13.7 * var(--grid-cell));
     position: relative;
     user-select: none;
+    pointer-events: none;
  }
  
  .character {
