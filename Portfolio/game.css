@@ -33,7 +33,7 @@
 
  @media( min-width: 769px ) {
     :root {
-       --pixel-size: 7px;
+       --pixel-size: 12px;
     }
     .dpad {
         bottom: 12%;
