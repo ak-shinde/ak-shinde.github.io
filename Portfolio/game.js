@@ -247,11 +247,11 @@ document.addEventListener("mouseup", (e) => {
 
 
 document.addEventListener("touchend", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
     isPressed = false;
     held_directions = [];
     removePressedAll();
+    e.preventDefault();
+    e.stopPropagation();
  })
 
 const handleDpadPress = (direction, click) => {   
@@ -262,7 +262,8 @@ const handleDpadPress = (direction, click) => {
    held_directions = (isPressed) ? [direction] : []
    
    if (isPressed) {
-    console.log('ispressed')
+      console.log('ispressed')
+      isPressed = false;
       removePressedAll();
       document.querySelector(".dpad-"+direction).classList.add("pressed");
       hideText()
