@@ -234,18 +234,21 @@ const removePressedAll = () => {
       d.classList.remove("pressed")
    })
 }
-// document.addEventListener("mousedown", () => {
-//    console.log('mouse is down')
-//    isPressed = true;
-// })
-// document.addEventListener("mouseup", () => {
-//    console.log('mouse is up')
-//    isPressed = false;
-//    held_directions = [];
-//    removePressedAll();
-// })
+document.addEventListener("mousedown", () => {
+   console.log('mouse is down')
+   isPressed = true;
+})
+document.addEventListener("mouseup", (e) => {
+   console.log('mouse is up')
+   isPressed = false;
+   held_directions = [];
+   removePressedAll();
+})
 
-document.addEventListener("touchend", () => {
+
+document.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     isPressed = false;
     held_directions = [];
     removePressedAll();
@@ -382,7 +385,6 @@ function revealOneCharacter(list) {
 function hideText() {
     container.innerHTML = ""
     document.querySelector(".text").classList.add('hidden')
-    isPressed = false
 }
 
 
