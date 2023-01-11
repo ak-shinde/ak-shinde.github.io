@@ -36,7 +36,7 @@
        --pixel-size: 7px;
     }
     .dpad {
-        bottom: 10%;
+        bottom: 15%;
     }
  }
  @media( min-width: 1025px ) {
@@ -275,7 +275,7 @@
     font-family: 'Press Start 2P'
  }
  .text {
-    font-size: calc(var(--pixel-size) * 3.5);
+    font-size: calc(var(--pixel-size) * 1.5);
     word-spacing: 0.2em;
     margin: 0 auto;
     background: #fff;
