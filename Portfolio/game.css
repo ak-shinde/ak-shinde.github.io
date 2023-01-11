@@ -266,7 +266,7 @@
     font-family: 'Press Start 2P'
  }
  .text {
-    font-size: calc(var(--pixel-size) * 2.5);
+    font-size: calc(var(--pixel-size) * 3.5);
     word-spacing: 0.2em;
     margin: 0 auto;
     background: #fff;
