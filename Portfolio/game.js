@@ -330,7 +330,7 @@ var welcomeMessage = [
    { speed: speeds.fast, string: " to interact with the computers and fellow office members." },
    { speed: speeds.pause, string: "", pause: true },
    { speed: speeds.pause, string: "", pause: true },
-   { speed: speeds.fast, string: "\n\nPlease take a moment and exlore the entire portfolio map.", classes: ["green"] },
+   { speed: speeds.fast, string: "\n\nPlease take a moment and explore the entire portfolio map.", classes: ["green"] },
    { speed: speeds.fast, string: "  - Akshay Shinde", classes: ["red"] },
 ];
 
@@ -339,7 +339,8 @@ var topWoman = [
     { speed: speeds.pause, string: "", pause: true },
     { speed: speeds.superFast, string: "There are 2 computers in the middle section where you can find the links you need." },
     { speed: speeds.pause, string: "", pause: true },
-    { speed: speeds.superFast, string: "Resume is at the printer.", classes: ["green"] },
+    { speed: speeds.slow, string: "Resume ", classes: ["green"] },
+    { speed: speeds.superFast, string: "is at the printer." },
     { speed: speeds.pause, string: "", pause: true },
     { speed: speeds.superFast, string: "The " },
     { speed: speeds.slow, string: "\"X\"", classes: ["white"] },
