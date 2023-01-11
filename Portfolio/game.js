@@ -279,6 +279,7 @@ document.querySelector(".dpad-select").addEventListener("touchstart", (e) => han
 // document.querySelector(".dpad-down").addEventListener("touchend", (e) => handleDpadPress(directions.down));
 // document.querySelector(".dpad-select").addEventListener("touchend", (e) => handleDpadPress(directions.select));
 
+document.addEventListener("contextmenu", (e) => e.preventDefault());
 document.querySelector(".frame").addEventListener("contextmenu", (e) => e.preventDefault());
 document.querySelector(".dpad-left").addEventListener("contextmenu", (e) => e.preventDefault());
 document.querySelector(".dpad-up").addEventListener("contextmenu", (e) => e.preventDefault());

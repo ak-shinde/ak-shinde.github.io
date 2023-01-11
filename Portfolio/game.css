@@ -4,6 +4,15 @@
     --bg: black;
  }
 
+ @media only screen and (min-device-width: 480px) {
+    :root {
+        --pixel-size: 7px;
+     }
+     .dpad {
+        bottom: 12%;
+    }
+ }
+
  @media(min-width: 320px) {
     :root {
         --pixel-size: 7px;
@@ -13,7 +22,7 @@
     }
  }
 
- @media(min-width: 480px) {
+ @media(min-width: 481px) {
     :root {
         --pixel-size: 3px;
      }
@@ -22,7 +31,7 @@
     }
  }
 
- @media( min-width: 768px ) {
+ @media( min-width: 769px ) {
     :root {
        --pixel-size: 4px;
     }
@@ -30,7 +39,7 @@
         bottom: 15%;
     }
  }
- @media( min-width: 1024px ) {
+ @media( min-width: 1025px ) {
     :root {
        --pixel-size: 5px;
     }
