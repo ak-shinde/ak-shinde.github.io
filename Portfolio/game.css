@@ -1,13 +1,10 @@
 :root {
-    --pixel-size: 8px;
+    --pixel-size: 3px;
     --grid-cell: calc( var(--pixel-size) * 12);
     --bg: black;
  }
- .dpad {
-    bottom: 15%;
-}
 
- /* @media only screen and (min-device-width: 480px) {
+ @media only screen and (min-device-width: 480px) {
     :root {
         --pixel-size: 7px;
      }
@@ -49,7 +46,7 @@
     .dpad {
         bottom: 9%;
     }
- } */
+ }
  
  html, body {
     height: 100%;
