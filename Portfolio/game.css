@@ -1,31 +1,43 @@
 :root {
     --pixel-size: 3px;
     --grid-cell: calc( var(--pixel-size) * 12);
-    --bg: #9fa7e4;
+    --bg: black;
  }
 
- /* @media only screen and (max-width: 900px) {
+ @media(min-width: 320px) {
+    :root {
+        --pixel-size: 6px;
+     }
+     .dpad {
+        bottom: 10%;
+    }
+ }
+
+ @media(min-width: 480px) {
     :root {
         --pixel-size: 3px;
      }
- } */
+     .dpad {
+        bottom: 18%;
+    }
+ }
 
- @media( min-width: 700px ) {
+ @media( min-width: 768px ) {
     :root {
        --pixel-size: 4px;
     }
+    .dpad {
+        bottom: 15%;
+    }
  }
- @media( min-width: 1000px ) {
+ @media( min-width: 1024px ) {
     :root {
        --pixel-size: 5px;
     }
- }
-
- /* @media( min-width: 1280px ) {
-    :root {
-       --pixel-size: 6px;
+    .dpad {
+        bottom: 10%;
     }
- } */
+ }
  
  html, body {
     height: 100%;
@@ -43,19 +55,33 @@
  }
  
  .frame {
-    width: calc(var(--pixel-size) * 160);
-    height: calc(var(--pixel-size) * 145);
+    width: 80%;
+    height: 70%;
     outline: var(--pixel-size) solid #fff;
     z-index:1; 
     position:relative;
+    background-color: burlywood;
+ }
+
+ @media(min-width: 1024px) {
+    .frame {
+        width: 80%;
+        height: 80%;
+        outline: var(--pixel-size) solid #fff;
+        z-index:1; 
+        position:relative;
+        background-color: burlywood;
+     }
  }
  
  .camera {
-    width: calc(var(--pixel-size) * 160);
-    height: calc(var(--pixel-size) * 145);
+    width: 100%;
+    height: 70%;
     overflow: hidden;
-    background: gray;
+    background: bisque;
     position:relative;
+    box-sizing: border-box;
+    border: 5px solid black;
  }
  
  .map {
@@ -119,10 +145,12 @@
  
  .dpad {
     position:absolute;
-    right: calc(var(--pixel-size) * 2);
-    bottom: calc(var(--pixel-size) * 2);
+    /* right: calc(var(--pixel-size) * 2); */
+    /* bottom: 10%; */
     width: calc(var(--pixel-size) * 37);
     height: calc(var(--pixel-size) * 38);
+    user-select:none;
+    z-index: 2;
  }
  .dpad-button {
     appearance:none;
@@ -137,8 +165,8 @@
     height: calc(var(--pixel-size) * 13);
  }
  
- .dpad-button.pressed .Arrow_arrow-inset { stroke:#07c2cc; }
- .dpad-button.pressed .Arrow_arrow-body { stroke:#17dfea; }
+ .dpad-button.pressed .Arrow_arrow-inset { stroke:#d18c02; }
+ .dpad-button.pressed .Arrow_arrow-body { stroke:#ffaa00; }
 
  .dpad-button.highlight .Arrow_arrow-inset { stroke:#fff; }
  .dpad-button.highlight .Arrow_arrow-body { stroke:#fff; }
@@ -170,10 +198,6 @@
     position: absolute;
     top: calc(var(--pixel-size) * 12);
     left: calc(var(--pixel-size) * 12);
- }
- 
- .dpad {
-    user-select:none;
  }
  
  

@@ -279,6 +279,7 @@ document.querySelector(".dpad-select").addEventListener("touchstart", (e) => han
 // document.querySelector(".dpad-down").addEventListener("touchend", (e) => handleDpadPress(directions.down));
 // document.querySelector(".dpad-select").addEventListener("touchend", (e) => handleDpadPress(directions.select));
 
+document.querySelector(".map").addEventListener("contextmenu", (e) => e.preventDefault());
 document.querySelector(".dpad-left").addEventListener("contextmenu", (e) => e.preventDefault());
 document.querySelector(".dpad-up").addEventListener("contextmenu", (e) => e.preventDefault());
 document.querySelector(".dpad-right").addEventListener("contextmenu", (e) => e.preventDefault());
@@ -308,7 +309,7 @@ var speeds = {
    pause: 500, //Higher number = longer delay
    slow: 120,
    normal: 90,
-   fast: 40,
+   fast: 20,
    superFast: 10
 };
 
