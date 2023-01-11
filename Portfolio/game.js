@@ -80,7 +80,7 @@ const placeCharacter = () => {
    }
 
    if (y > 42 && y < 72 && held_direction) {
-    if (x > 4 && x < 16*8.5 && held_direction === directions.right) x = 4
+    if (x > 4 && x < 16*8.3 && held_direction === directions.right) x = 4
     if (x < 16*8.3 && x > 4 && held_direction === directions.left) x = 16*8.3
    }
 
