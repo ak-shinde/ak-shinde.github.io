@@ -286,9 +286,9 @@
     /* white-space: pre-line; */
 
     position:absolute;
-    left: calc(var(--pixel-size) * 15);
+    /* left: calc(var(--pixel-size) * 15); */
     top: calc(var(--pixel-size) * 2);
-    width: calc(var(--pixel-size) * 130);
+    /* width: calc(var(--pixel-size) * 130); */
     /* height: calc(var(--pixel-size) * 38); */
  }
  .corner {
@@ -310,6 +310,7 @@
     left: calc(var(--pixel-size) * 72);
  }
  .navBox {
+    font-size: calc(var(--pixel-size) * 2.5);
     left: calc(var(--pixel-size) * 45);
     top: calc(var(--pixel-size) * 30);
     width: calc(var(--pixel-size) * 50);
