@@ -1,11 +1,6 @@
 var character = document.querySelector(".character");
 var map = document.querySelector(".map");
 
-//start in the middle of the map
-// var x = 64;
-// var y = 104;
-// var x = 16*6;
-// var y = 104;
 var x = -8;
 var y = 32;
 var held_directions = []; //State of which arrow keys we are holding down
@@ -227,7 +222,7 @@ document.addEventListener("keyup", (e) => {
 
 
 
-/* BONUS! Dpad functionality for mouse and touch */
+/* Dpad functionality for mouse and touch */
 var isPressed = false;
 const removePressedAll = () => {
    document.querySelectorAll(".dpad-button").forEach(d => {
@@ -235,11 +230,9 @@ const removePressedAll = () => {
    })
 }
 document.addEventListener("mousedown", () => {
-   console.log('mouse is down')
    isPressed = true;
 })
 document.addEventListener("mouseup", (e) => {
-   console.log('mouse is up')
    isPressed = false;
    held_directions = [];
    removePressedAll();
@@ -256,13 +249,11 @@ document.addEventListener("touchend", (e) => {
 
 const handleDpadPress = (direction, click) => {   
    if (click) {
-    console.log('click')
       isPressed = true;
    }
    held_directions = (isPressed) ? [direction] : []
    
    if (isPressed) {
-      console.log('ispressed')
       isPressed = false;
       removePressedAll();
       document.querySelector(".dpad-"+direction).classList.add("pressed");
@@ -277,11 +268,11 @@ document.querySelector(".dpad-right").addEventListener("touchstart", (e) => hand
 document.querySelector(".dpad-down").addEventListener("touchstart", (e) => handleDpadPress(directions.down, true));
 document.querySelector(".dpad-select").addEventListener("touchstart", (e) => handleDpadPress(directions.select, true));
 
-// document.querySelector(".dpad-left").addEventListener("touchend", (e) => handleDpadPress(directions.left));
-// document.querySelector(".dpad-up").addEventListener("touchend", (e) => handleDpadPress(directions.up));
-// document.querySelector(".dpad-right").addEventListener("touchend", (e) => handleDpadPress(directions.right));
-// document.querySelector(".dpad-down").addEventListener("touchend", (e) => handleDpadPress(directions.down));
-// document.querySelector(".dpad-select").addEventListener("touchend", (e) => handleDpadPress(directions.select));
+document.querySelector(".dpad-left").addEventListener("touchend", (e) => handleDpadPress(directions.left));
+document.querySelector(".dpad-up").addEventListener("touchend", (e) => handleDpadPress(directions.up));
+document.querySelector(".dpad-right").addEventListener("touchend", (e) => handleDpadPress(directions.right));
+document.querySelector(".dpad-down").addEventListener("touchend", (e) => handleDpadPress(directions.down));
+document.querySelector(".dpad-select").addEventListener("touchend", (e) => handleDpadPress(directions.select));
 
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 // document.querySelector(".frame").addEventListener("contextmenu", (e) => e.preventDefault());
@@ -387,6 +378,7 @@ function revealOneCharacter(list) {
 function hideText() {
     container.innerHTML = ""
     document.querySelector(".text").classList.add('hidden')
+    modal.style.display = "none"
 }
 
 
@@ -447,11 +439,11 @@ function createTextSpans(textLines, isNPC) {
 
 var isLinkPressed = false;
 const links = {
-    resume: 'https://www.dropbox.com/s/4uxp05m1xbk51sg/Resume-AkshayShinde.pdf?dl=0',
-    about: 'https://github.com/ak-shinde',
-    experiences: 'https://github.com/ak-shinde',
-    skillset: 'https://github.com/ak-shinde',
-    education: 'https://github.com/ak-shinde',
+    resume: 'https://www.dropbox.com/scl/fi/mt61yuh11fp7vtou74i6g/Resume-AkshayShinde.pdf?rlkey=ysi3o76vkm0gp6pmeuqv1hgkm&st=mfeai3eb&dl=0',
+    about: "Experienced Software Engineer with a Master's in Computer Science from USC, with 5 years of expertise in backend, frontend, and cloud technologies.\n\n\nPassionate about innovative problem-solving, scalable system design, and delivering high-quality, impactful solutions in agile, mission-driven environments.\n\n\nBeing an artist, I bring unique perspectives to problem-solving and have a deep curiosity to explore and master new technologies.",
+    experiences: 'Current: Software Engineer II @ MultiMedia\n\n\n\tEx - Summer Intern @ Twilio\n\n\tEx - Reasearch Student Developer @ USC Lab of NeuroImaging\n\n\tEx - Product Developer @ BMC Softwares',
+    skillset: 'My technical background in Computer Science has allowed me to work on multiple technologies, including, but not limited to:\n\n\nBackend: Java, Python, Node.js, Django\n\nFrontend: TypeScript, Angular, React, SwiftUI, HTML, CSS, Javascript, PHP\n\nDatabase: MySQL, PostgreSQL, MongoDB, Hadoop\n\nCloud & Operating systems: GCP, Amazon S3, Windows, Linux, macOS, iOS\n\nSoftwares and Libraries: Wowza, Celery, WebRTC, D3.js, Three.js, Git, Jira, Balsamiq, Figma, Postman, ArcGIS, WebRTC, Browserstack, Lambdatest',
+    education: 'University of Southern California\n\n- Master of Science in Computer Science | GPA: 3.90 \n\n\nPune Institute of Computer Technology\n\n- Bachelor of Engineering in Information Technology | GPA: 3.82',
     projects: 'https://github.com/ak-shinde',
 }
 
@@ -467,11 +459,38 @@ function showNavText(textLines, link) {
     createTextSpans(getNavTitle(textLines), false)
 
     if (!isLinkPressed && held_directions && held_directions[0] === directions.select) {
-        window.open(link, '_blank');
-        isLinkPressed = true;
-        held_directions = []
+      if (link == links.resume || link == links.projects) {
+         window.open(link, '_blank');
+         isLinkPressed = true;
+         held_directions = []
+      } else {
+         modal.style.display = "block";
+         modalContent.innerText = link
+      }
     }
 
 }
 
 showText(welcomeMessage, false)
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var modalContent = document.getElementById("modalContent");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
