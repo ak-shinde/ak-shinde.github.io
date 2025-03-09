@@ -439,7 +439,7 @@ function createTextSpans(textLines, isNPC) {
 
 var isLinkPressed = false;
 const links = {
-    resume: 'https://www.dropbox.com/scl/fi/mt61yuh11fp7vtou74i6g/Resume-AkshayShinde.pdf?rlkey=ysi3o76vkm0gp6pmeuqv1hgkm&st=mfeai3eb&dl=0',
+    resume: 'https://www.dropbox.com/scl/fi/6dph3xf9pxf19bs9527fi/Resume-AkshayShinde.pdf?rlkey=x561vwbjvmjlsqsdtkdcasm0z&st=ho9unx76&dl=0',
     about: "Experienced Software Engineer with a Master's in Computer Science from USC, with 5 years of expertise in backend, frontend, and cloud technologies.\n\n\nPassionate about innovative problem-solving, scalable system design, and delivering high-quality, impactful solutions in agile, mission-driven environments.\n\n\nBeing an artist, I bring unique perspectives to problem-solving and have a deep curiosity to explore and master new technologies.",
     experiences: 'Current: Software Engineer II @ MultiMedia\n\n\n\tEx - Summer Intern @ Twilio\n\n\tEx - Reasearch Student Developer @ USC Lab of NeuroImaging\n\n\tEx - Product Developer @ BMC Softwares',
     skillset: 'My technical background in Computer Science has allowed me to work on multiple technologies, including, but not limited to:\n\n\nBackend: Java, Python, Node.js, Django\n\nFrontend: TypeScript, Angular, React, SwiftUI, HTML, CSS, Javascript, PHP\n\nDatabase: MySQL, PostgreSQL, MongoDB, Hadoop\n\nCloud & Operating systems: GCP, Amazon S3, Windows, Linux, macOS, iOS\n\nSoftwares and Libraries: Wowza, Celery, WebRTC, D3.js, Three.js, Git, Jira, Balsamiq, Figma, Postman, ArcGIS, WebRTC, Browserstack, Lambdatest',
