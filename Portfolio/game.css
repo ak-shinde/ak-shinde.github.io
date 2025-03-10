@@ -97,7 +97,7 @@
  
  .map {
     image-rendering: pixelated;
-    background-image: url("https://img.itch.zone/aW1nLzYzODg1NjQuZ2lm/original/3XIlo%2B.gif");
+    background-image: url("officeMap.gif");
     background-size: 100%;
     width: calc(13 * var(--grid-cell));
     height: calc(13.7 * var(--grid-cell));
@@ -119,13 +119,13 @@
     position: absolute;
     left:0;
     top:0;
-    background: url("https://assets.codepen.io/21542/DemoRpgCharacterShadow.png") no-repeat no-repeat;
+    background: url("characterShadow.png") no-repeat no-repeat;
     background-size: 100%;
  }
  
  .character_spritesheet {
     position: absolute;
-    background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b5c8fc60-64f7-4bb9-a25d-4d2bef9ec716/dbt7um8-4fc56dc7-8e0e-42c0-ab35-cddea8d48cd3.png/v1/fill/w_256,h_256,strp/redesigned_giovanni_gen_iv_sprite_sheet_by_pizzasun_dbt7um8-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjU2IiwicGF0aCI6IlwvZlwvYjVjOGZjNjAtNjRmNy00YmI5LWEyNWQtNGQyYmVmOWVjNzE2XC9kYnQ3dW04LTRmYzU2ZGM3LThlMGUtNDJjMC1hYjM1LWNkZGVhOGQ0OGNkMy5wbmciLCJ3aWR0aCI6Ijw9MjU2In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.g4aGKc-g8KiPKqoYJonaJTjD5TXkvVQIx9Coetyf3Xg") no-repeat no-repeat;
+    background: url("characterSprite.png") no-repeat no-repeat;
     background-size: 100%;
     width: calc( var(--grid-cell)* 8 );
     height: calc( var(--grid-cell)* 8 );

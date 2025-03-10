@@ -194,14 +194,14 @@ const directions = {
    down: "down",
    left: "left",
    right: "right",
-   select: "select"
+   select: "select",
 }
 const keys = {
    38: directions.up,
    37: directions.left,
    39: directions.right,
    40: directions.down,
-   88: directions.select
+   88: directions.select,
 }
 document.addEventListener("keydown", (e) => {
    var dir = keys[e.which];
@@ -458,7 +458,7 @@ function showNavText(textLines, link) {
     document.querySelector(".corner").querySelector('path').classList.add('green')
     createTextSpans(getNavTitle(textLines), false)
 
-    if (!isLinkPressed && held_directions && held_directions[0] === directions.select) {
+    if (!isLinkPressed && held_directions && held_directions[0] == directions.select) {
       if (link == links.resume || link == links.projects) {
          window.open(link, '_blank');
          isLinkPressed = true;
@@ -468,7 +468,6 @@ function showNavText(textLines, link) {
          modalContent.innerText = link
       }
     }
-
 }
 
 showText(welcomeMessage, false)
