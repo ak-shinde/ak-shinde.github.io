@@ -268,11 +268,11 @@ document.querySelector(".dpad-right").addEventListener("touchstart", (e) => hand
 document.querySelector(".dpad-down").addEventListener("touchstart", (e) => handleDpadPress(directions.down, true));
 document.querySelector(".dpad-select").addEventListener("touchstart", (e) => handleDpadPress(directions.select, true));
 
-document.querySelector(".dpad-left").addEventListener("touchend", (e) => handleDpadPress(directions.left));
-document.querySelector(".dpad-up").addEventListener("touchend", (e) => handleDpadPress(directions.up));
-document.querySelector(".dpad-right").addEventListener("touchend", (e) => handleDpadPress(directions.right));
-document.querySelector(".dpad-down").addEventListener("touchend", (e) => handleDpadPress(directions.down));
-document.querySelector(".dpad-select").addEventListener("touchend", (e) => handleDpadPress(directions.select));
+// document.querySelector(".dpad-left").addEventListener("touchend", (e) => handleDpadPress(directions.left));
+// document.querySelector(".dpad-up").addEventListener("touchend", (e) => handleDpadPress(directions.up));
+// document.querySelector(".dpad-right").addEventListener("touchend", (e) => handleDpadPress(directions.right));
+// document.querySelector(".dpad-down").addEventListener("touchend", (e) => handleDpadPress(directions.down));
+// document.querySelector(".dpad-select").addEventListener("touchend", (e) => handleDpadPress(directions.select));
 
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 // document.querySelector(".frame").addEventListener("contextmenu", (e) => e.preventDefault());
